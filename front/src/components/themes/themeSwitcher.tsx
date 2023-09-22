@@ -12,8 +12,6 @@ const ToggleThemeSwitcher = () => {
   const [isSelected, setIsSelected] = useState(theme === 'light');
 
   useEffect(() => {
-    console.log(theme);
-
     setTheme(isSelected ? 'light' : 'dark');
   }, [isSelected, setTheme]);
 

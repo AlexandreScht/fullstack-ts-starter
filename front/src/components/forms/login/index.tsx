@@ -91,15 +91,9 @@ const LoginForm = ({ errorMessage, captchaKey }: { errorMessage: string | null; 
               }}
             />
 
-            <div className="flex items-center justify-center mt-8 gap-2">
-              <Button type="submit" disabled={!(dirty && isValid)} isLoading={isSubmitting}>
-                Login
-              </Button>
-
-              <Button onClick={() => router.push(routes.pages.home())} className="ml-4 relative border-red-600 text-red-600 hover:bg-red-600">
-                Cancel
-              </Button>
-            </div>
+            <Button className="text-xl relative w-full mt-8 py-5" type="submit" disabled={!(dirty && isValid)} isLoading={isSubmitting}>
+              Login
+            </Button>
           </Form>
         )}
       </Formik>

@@ -31,7 +31,7 @@ const createRouteWithParams = (route: string, params?: ParamsType): string => {
 const routes: RoutesType = {
   pages: {
     home: () => '/',
-    login: () => '/login',
+    login: (query?: QueryType) => createRouteWithQueries('/login', query),
     register: (query?: QueryType) => createRouteWithQueries('/register', query),
     logout: () => '/logout',
   },

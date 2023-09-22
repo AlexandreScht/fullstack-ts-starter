@@ -4,7 +4,7 @@ import cn from '@/utils/cn';
 import { Input } from '@nextui-org/input';
 import { Field, FieldProps } from 'formik';
 import type { NewInputType, customClass, inputPropsUI, itemsContent } from 'next-ui';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 const InputField = ({
   required,
@@ -27,10 +27,10 @@ const InputField = ({
   return (
     <Field name={name}>
       {({ field, meta, form }: FieldProps) => {
-        const handleClear = () => {
+        const handleClear = useCallback(() => {
           field.onChange({ target: { name: field.name, value: '' } });
           form.setFieldTouched(field.name, false);
-        };
+        }, []);
 
         const GetError = meta.error && meta.touched;
         const validation = GetError ? 'invalid' : 'valid';

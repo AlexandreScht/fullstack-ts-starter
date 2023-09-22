@@ -60,10 +60,6 @@ const RegisterForm = ({ captchaKey }: { captchaKey: string }) => {
     [register, router],
   );
 
-  const redirectLink = () => {
-    router.push(routes.pages.home());
-  };
-
   return (
     <div className="w-full">
       {response && (
@@ -106,15 +102,9 @@ const RegisterForm = ({ captchaKey }: { captchaKey: string }) => {
               }}
             />
 
-            <div className="flex items-center justify-center my-8 gap-2">
-              <Button type="submit" disabled={!(dirty && isValid)} isLoading={isSubmitting}>
-                Register
-              </Button>
-
-              <Button onClick={redirectLink} className="ml-4 relative border-red-600 text-red-600 hover:bg-red-600">
-                Cancel
-              </Button>
-            </div>
+            <Button className="text-xl relative w-full mt-8 py-5" type="submit" disabled={!(dirty && isValid)} isLoading={isSubmitting}>
+              Register
+            </Button>
           </Form>
         )}
       </Formik>
